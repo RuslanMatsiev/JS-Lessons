@@ -15,13 +15,13 @@ mainList = {
 }
 
 for (i = 0; i < 3; i++){
-	a = prompt('Какой тип товаров будем продавать?');
-	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a !== '' && a.length < 50) {
+	let a = prompt('Какой тип товаров будем продавать?');
+	if (typeof(a) === 'string' && typeof(a) !== null && a != '' && a.length < 50) {
 		console.log('Все верно!');
 		mainList.shopGoods[i] = a;
-		i++;
 	} else {
-		console.log('Введите корректные данные!');
+		alert('Введите корректные данные!');
+		i--;
 	}
 }
 
@@ -30,14 +30,15 @@ for (i = 0; i < 3; i++){
 
 let i = 0;
 while (i < 3) {
-	a = prompt('Какой тип товаров будем продавать?');
-	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a !== '' && a.length < 50) {
+	let a = prompt('Какой тип товаров будем продавать?');
+	if (typeof(a) === 'string' && typeof(a) !== null && a != '' && a.length < 50) {
 		console.log('Все верно!');
 		mainList.shopGoods[i] = a;
+		i++;
 	} else {
-		console.log('Введите корректные данные!');
+		alert('Введите корректные данные!');
 	}
-	i++;
+	
 }
 	
 	---------- Конец первого способа ---------- */ 
@@ -47,14 +48,14 @@ while (i < 3) {
 
 let i = 0;
 do {
-	a = prompt('Какой тип товаров будем продавать?');
-	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a !== '' && a.length < 50) {
+	let a = prompt('Какой тип товаров будем продавать?');
+	if (typeof(a) === 'string' && typeof(a) !== null && a != '' && a.length < 50) {
 		console.log('Все верно!');
 		mainList.shopGoods[i] = a;
+		i++;
 	} else {
-		console.log('Введите корректные данные!');
+		alert('Введите корректные данные!');
 	}
-	i++;
 }
 while (i < 3);
 
