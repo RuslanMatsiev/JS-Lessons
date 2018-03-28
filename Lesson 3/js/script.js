@@ -53,29 +53,19 @@ function workTime(time) {
 workTime(18);
 
 // Дисконтная система
-let disc_price; 
-
 function discSystem() {
 	if (mainList.discount) {
-	disc_price = price * 0.8;
-	console.log('Цена со скидкой ' + disc_price);	
+	price = price * 0.8;
+	console.log('Цена со скидкой ' + price);	
 	} else {
 		console.log('Цена без скидки ' + price);
 		}
 }
 discSystem();
 
-
 // Расчет дневного бюджета
-let day_budget,
-	day 
-
-function calcBudget() {
-	day = 30;
-	day_budget = budget/day;
-}
-calcBudget();
-
+let calcBudget = (budget, day) => budget/day
+alert('Бюджет на день (руб): ' + budget/30);
 
 //Найм сотрудников
 function startEmploy() {
@@ -85,6 +75,7 @@ function startEmploy() {
 			console.log('Имена добавлены!');
 			mainList.employers[j] = name;
 		} else {
+			alert('Ведите имя сотрудника')
 			j--;
 		}
 	}
@@ -93,4 +84,4 @@ startEmploy();
 
 
 console.log(mainList);
-console.log('Бюджет на день (руб): ' + day_budget);
+
