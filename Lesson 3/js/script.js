@@ -75,7 +75,7 @@ function startEmploy() {
 			console.log('Имена добавлены!');
 			mainList.employers[j] = name;
 		} else {
-			alert('Ведите имя сотрудника')
+			alert('Введите имя сотрудника')
 			j--;
 		}
 	}
