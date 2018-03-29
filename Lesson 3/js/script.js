@@ -85,6 +85,5 @@ function startEmploy() {
 }
 startEmploy();
 
-
 console.log(mainList);
 
