@@ -87,11 +87,11 @@ let mainList = {
 				});
 		
 				for (let key in mainList) {
-				console.log('Наш магазин включает в себя: ' + key + '-' +	mainList[key])};
+				console.log('Наш магазин включает в себя: ' + key + '-' +	mainList[key])}
 				console.log(Object.keys(mainList).length); 
 	}
 
-}
+};
 
 console.log(mainList);
 
