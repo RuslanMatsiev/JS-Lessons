@@ -64,8 +64,11 @@ function discSystem() {
 discSystem();
 
 // Расчет дневного бюджета
-let calcBudget = (budget, day) => budget/day
-alert('Бюджет на день (руб): ' + budget/30);
+function calcBudget() {
+	let day = 30;
+	alert('Бюджет на день (руб): ' + budget/day);
+}
+calcBudget();
 
 //Найм сотрудников
 function startEmploy() {
@@ -75,7 +78,7 @@ function startEmploy() {
 			console.log('Имена добавлены!');
 			mainList.employers[j] = name;
 		} else {
-			alert('Ведите имя сотрудника')
+			alert('Введите имя сотрудника')
 			j--;
 		}
 	}
