@@ -86,8 +86,9 @@ let mainList = {
 				mainList.chooseShopItems.forEach(function(items, n) {
 				alert('У нас Вы можете купить: ' + (n+1) + ' - ' + items);
 				});
+		
 				for (let key in mainList) {
-				console.log('Наш магазин включает в себя: ' + key + '-' +	mainList[key])		}
+				console.log('Наш магазин включает в себя: ' + key + '-' + mainList[key])}
 				console.log(Object.keys(mainList).length) 
 	}
 
