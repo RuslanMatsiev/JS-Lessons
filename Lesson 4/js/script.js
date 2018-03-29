@@ -74,7 +74,6 @@ let mainList = {
 	// Проверка + перечисление + что включает магазин
 	chooseShopItems: function chooseShopItems() {
 			let items = prompt('Перечислите через запятую Ваши товары', '');
-			
 				while (!isNaN(items) || items === null || items === '') {
 					alert('Введите названия товаров');
 					items = prompt('Перечислите через запятую Ваши товары', '');
@@ -86,6 +85,7 @@ let mainList = {
 				mainList.chooseShopItems.forEach(function(items, n) {
 				alert('У нас Вы можете купить: ' + (n+1) + ' - ' + items);
 				});
+		
 				for (let key in mainList) {
 				console.log('Наш магазин включает в себя: ' + key + '-' +	mainList[key])};
 				console.log(Object.keys(mainList).length); 
