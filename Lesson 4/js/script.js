@@ -87,7 +87,7 @@ let mainList = {
 				alert('У нас Вы можете купить: ' + (n+1) + ' - ' + items);
 				});
 	},		
-	magazineItems:  function magazineItems() {
+	shopTabs: function shopTabs() {
 	console.log ('В нашем магазине есть');
 	for (let key in mainList) {
 		console.log(key);
