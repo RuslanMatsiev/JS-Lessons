@@ -45,9 +45,8 @@ goods_btn.addEventListener('click', () => {
 
 choose_item.addEventListener('change', () => {
 	let items = choose_item.value;
-	if (isNaN(items) && items != '') {
-		mainList.shopItems = items.split(', ');
-		mainList.shopItems.sort();
+	if (isNaN(items) && items !== '') {
+		mainList.shopItems = items.split(',').sort();
 		items_value.textContent = mainList.shopItems;
 	}
 });
