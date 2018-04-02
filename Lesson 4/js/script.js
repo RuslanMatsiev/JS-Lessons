@@ -87,17 +87,12 @@ let mainList = {
 				alert('У нас Вы можете купить: ' + (n+1) + ' - ' + items);
 				});
 	},		
-<<<<<<< HEAD
 	shopTabs:  function shopTabs() {
-=======
-	shopTabs: function shopTabs() {
->>>>>>> 301b9907080f98b4cfce1b2c3d710bddfeb4fda7
 	console.log ('В нашем магазине есть');
 	for (let key in mainList) {
 		console.log(key);
 	}
 	}
-
 };
 
 console.log(mainList);
