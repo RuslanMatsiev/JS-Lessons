@@ -12,7 +12,6 @@ class createDiv {
 			div.classList.add('first');
 			document.body.appendChild(div);
 			div.textContent = 'Это пробный текст';
-			console.log(div.textContent);
 
 			div.style.height = this.height;
 			div.style.width = this.width;
