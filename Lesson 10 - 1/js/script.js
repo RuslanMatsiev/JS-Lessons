@@ -8,9 +8,9 @@ class createDiv {
 	}
 	attributes() {
 		let div = document.createElement('div');
-			document.body.appendChild(div);
-			div.textContent = 'Это пробный текст';
-			div.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};`;
+		    document.body.appendChild(div);
+		    div.textContent = 'Это пробный текст';
+		    div.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};`;
 	}
 }
 
