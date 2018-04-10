@@ -8,17 +8,9 @@ class createDiv {
 	}
 	attributes() {
 		let div = document.createElement('div');
-
-			div.classList.add('first');
 			document.body.appendChild(div);
 			div.textContent = 'Это пробный текст';
-			console.log(div.textContent);
-
-			div.style.height = this.height;
-			div.style.width = this.width;
-			div.style.background = this.bg;
-			div.style.fontSize = this.fontSize;
-			div.style.textAlign = this.textAlign;
+			div.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};`;
 	}
 }
 
