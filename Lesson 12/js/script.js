@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$('.modal').animate({marginTop: '5em',}, 1000);
 	});
 
-	//
+	// Исчезновение подложки и формы по клику на X
 	$('.close').on('click', function(){
 
 		// Плавное изчезновение подложки в теч. 1.5 сек
