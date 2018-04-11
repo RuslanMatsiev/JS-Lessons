@@ -8,9 +8,15 @@ class createDiv {
 	}
 	attributes() {
 		let div = document.createElement('div');
+<<<<<<< HEAD
 			document.body.appendChild(div);
 			div.textContent = 'Это пробный текст';
 			div.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};`;
+=======
+		    document.body.appendChild(div);
+		    div.textContent = 'Это пробный текст';
+		    div.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};`;
+>>>>>>> b4a929785bfcc951c0985a6f7facac9af9c9830a
 	}
 }
 
