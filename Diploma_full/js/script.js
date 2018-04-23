@@ -476,15 +476,13 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 
 	
 	// Проводим честное голосование и делаем обводку у победителя  -----------------------------------------
-	let voting  = document.getElementById('voting'),
-		min = 0,
-		max, a, b, c;
+	let voting  = document.getElementById('voting');
 
 		voting.addEventListener('click', () => {
-			max = 100;
+	/*		max = 100;
 			a = Math.floor(Math.random() * (max - min));
-		  b = Math.floor(Math.random() * (max - a));
-		  c = Math.floor(Math.random() * (max - b));
+		  	b = Math.floor(Math.random() * (max - a));
+		  	c = (Math.floor(Math.random() * (max - b));)
 
 		    if ((a + b) < max) {
 		    	c = max - (a + b);
@@ -504,8 +502,21 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 		    progressBar[1].style.height = `${b}%`;
 
 		    resultCount[2].textContent = `${c}%`;
-		    progressBar[2].style.height = `${c}%`;			    
-			    
+		    progressBar[2].style.height = `${c}%`;	*/		    
+			
+			let a, b, c, max = 100,
+			s = resultCount.length;
+			
+		    a = Math.floor(Math.random() * max);
+		    b = Math.floor(Math.random() * (max - a));
+		    c = max - (a + b);
+		    arr = [a, b, c];
+
+		    for (let i = 0; i < s; i++) {
+		    	resultCount[i].textContent = `${arr[i]}%`;
+		    	progressBar[i].style.height = `${arr[i]}%`;
+		    }
+
 		    if (a > b && a > c) {
 		    	mainCardsItem[0].classList.add('main-cards-item-active');
 		    	mainCardsItem[1].classList.remove('main-cards-item-active');
@@ -531,47 +542,62 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 	let crime = document.getElementById('crime');
 
 		crime.addEventListener('click', () => {
-		max = 75;
 
-		a = Math.floor(Math.random() * (max - min)),
-		b = Math.floor(Math.random() * (max - a));
+		/*	a = Math.floor(Math.random() * (max - min)),
+			b = Math.floor(Math.random() * (max - a));
 
-		if ((a + c) < max) {
-		   	b = max - (a + c);
-		} 
+			if ((a + c) < max) {
+			   	b = max - (a + c);
+			} 
 
-	    if ((b + c) < max) {
-	    	a = max - (b + c);
-	    } 
- 	
- 		let s = c + 25;
+		    if ((b + c) < max) {
+		    	a = max - (b + c);
+		    } 
+	 		c = (75 - (a+b));
+	 		s = c + 25;
 
-	    resultCount[0].textContent = `${a}%`;
-	    resultCount[1].textContent = `${b}%`;
-	    progressBar[0].style.height = `${a}%`;
-	    progressBar[1].style.height = `${b}%`;
-	   
-	    resultCount[2].textContent = `${s}%`;
-	    progressBar[2].style.height = `${s}%`;
+		    resultCount[0].textContent = `${a}%`;
+		    resultCount[1].textContent = `${b}%`;
+		    progressBar[0].style.height = `${a}%`;
+		    progressBar[1].style.height = `${b}%`;
+		   
+		    resultCount[2].textContent = `${s}%`;
+		    progressBar[2].style.height = `${s}%`; */
 
-	    if (a > b && a > c) {
-	    	mainCardsItem[0].classList.add('main-cards-item-active');
-	    	mainCardsItem[1].classList.remove('main-cards-item-active');
-	    	mainCardsItem[2].classList.remove('main-cards-item-active');
-	    }
-	
-	    if (b > a && b > c) {
-	    	mainCardsItem[1].classList.add('main-cards-item-active');
-	    	mainCardsItem[0].classList.remove('main-cards-item-active');
-	    	mainCardsItem[2].classList.remove('main-cards-item-active');
-	    }
+			let a, b, c, max = 75,
+			s = resultCount.length;
 
-	    if (s > a && s > b) {
-	    	mainCardsItem[2].classList.add('main-cards-item-active');
-	    	mainCardsItem[1].classList.remove('main-cards-item-active');
-	    	mainCardsItem[0].classList.remove('main-cards-item-active');
-	    }
+			a = Math.floor(Math.random() * max);
+			b = Math.floor(Math.random() * (max - a));
+			c = (max - (a + b)) + 25;
+			arr = [a, b, c];
+
+			for (let i = 0; i < s - 1; i++) {
+			  	resultCount[i].textContent = `${arr[i]}%`;
+			  	progressBar[i].style.height = `${arr[i]}%`;
+			}
+
+			resultCount[s - 1].textContent = `${c}%`;
+			progressBar[s - 1].style.height = `${c}%`;
+
+		    if (a > b && a > c) {
+		    	mainCardsItem[0].classList.add('main-cards-item-active');
+		    	mainCardsItem[1].classList.remove('main-cards-item-active');
+		    	mainCardsItem[2].classList.remove('main-cards-item-active');
+		    }
 		
-	});
+		    if (b > a && b > c) {
+		    	mainCardsItem[1].classList.add('main-cards-item-active');
+		    	mainCardsItem[0].classList.remove('main-cards-item-active');
+		    	mainCardsItem[2].classList.remove('main-cards-item-active');
+		    }
+
+		    if (s > a && s > b) {
+		    	mainCardsItem[2].classList.add('main-cards-item-active');
+		    	mainCardsItem[1].classList.remove('main-cards-item-active');
+		    	mainCardsItem[0].classList.remove('main-cards-item-active');
+		    }
+		
+		});
 
 });
