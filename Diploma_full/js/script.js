@@ -471,6 +471,9 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 			customChar.insertBefore(person ,readyBtn);
 			main.style.display = 'none';
 			custom.style.display = 'flex';
+			name.value = '';
+			age.value = '';
+			bio.value = '';
 		});
 
 	
