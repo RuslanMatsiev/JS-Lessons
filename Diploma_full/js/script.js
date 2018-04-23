@@ -374,7 +374,7 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 
 		// Проверяем поле "Имя" на правильность заполнения
 		name.addEventListener('input', () => {
-			if (name.value.match(/^[a-zA-Zа-яА-ЯёЁ ]+$/) && name.value != null && name.value != '' ) {
+			if (!name.value.match(/\d/) && name.value != null && name.value != '' ) {
 				name.style.border = '1px solid #1f8ce2';
 				// Если заполнили поле верно, "активируем" следующее поле
 				age.style.cssText = 'pointer-events:; opacity:;';
@@ -471,9 +471,16 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 			customChar.insertBefore(person ,readyBtn);
 			main.style.display = 'none';
 			custom.style.display = 'flex';
+			
+			// Очищаем поля и вызываем функции полей
 			name.value = '';
 			age.value = '';
 			bio.value = '';
+
+			name.input = function() {};
+			age.input = function() {};
+			bio.input = function() {};
+
 		});
 
 	
