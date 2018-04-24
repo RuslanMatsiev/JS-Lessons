@@ -40,25 +40,28 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 	prev_2 = document.querySelectorAll('.prev')[0],
 	next_2 = document.querySelectorAll('.next')[0];
 
-	// Отлючаем выбор пола по умолчанию и ставим "Заглушку" с блокировкой функций слайдеров
-	// и первого текстового поля, так как первое текстовое поле разблокирует все остальные (код ниже), 
-	// и стартовая картинка после нажатия на кнопку "Готово" отправится на карточку кандидата
-	personSkin.style.cssText = 'background-image: url(img/skin/menwomen.png); width: 300px;';
-	personClothes.style.backgroundImage = 'none';
-	personHair.style.backgroundImage = 'none';
-	personShoes.style.backgroundImage = 'none';
-	prev.style.cssText = 'pointer-events: none; opacity: 0.3;';
-	next.style.cssText = 'pointer-events: none; opacity: 0.3;';
-	prev_1.style.cssText = 'pointer-events: none; opacity: 0.3;';
-	next_1.style.cssText = 'pointer-events: none; opacity: 0.3;';
-	prev_2.style.cssText = 'pointer-events: none; opacity: 0.3;';
-	next_2.style.cssText = 'pointer-events: none; opacity: 0.3;';
-	name.style.cssText = 'pointer-events: none; opacity: 0.3;';
+	function lock() {
+		// Отлючаем выбор пола по умолчанию и ставим "Заглушку" с блокировкой функций слайдеров
+		// и первого текстового поля, так как первое текстовое поле разблокирует все остальные (код ниже), 
+		// и стартовая картинка после нажатия на кнопку "Готово" отправится на карточку кандидата
+		personSkin.style.cssText = 'background-image: url(img/skin/menwomen.png); width: 300px;';
+		personClothes.style.backgroundImage = 'none';
+		personHair.style.backgroundImage = 'none';
+		personShoes.style.backgroundImage = 'none';
+		prev.style.cssText = 'pointer-events: none; opacity: 0.3;';
+		next.style.cssText = 'pointer-events: none; opacity: 0.3;';
+		prev_1.style.cssText = 'pointer-events: none; opacity: 0.3;';
+		next_1.style.cssText = 'pointer-events: none; opacity: 0.3;';
+		prev_2.style.cssText = 'pointer-events: none; opacity: 0.3;';
+		next_2.style.cssText = 'pointer-events: none; opacity: 0.3;';
+		name.style.cssText = 'pointer-events: none; opacity: 0.3;';
 
-	// Ставим картинки-заглушки на слайдеры
-	hairStyle[0].style.cssText = 'background-image: url(img/sliderLock/default-slider.png); background-size: auto;';
-	clothesStyle[0].style.cssText = 'background-image: url(img/sliderLock/default-slider.png); background-size: auto;';
-	skinColor[0].style.cssText = 'background-image: url(img/sliderLock/default-slider.png); background-size: auto; background-position: center;'; 
+		// Ставим картинки-заглушки на слайдеры
+		hairStyle[0].style.cssText = 'background-image: url(img/sliderLock/default-slider.png); background-size: auto;';
+		clothesStyle[0].style.cssText = 'background-image: url(img/sliderLock/default-slider.png); background-size: auto;';
+		skinColor[0].style.cssText = 'background-image: url(img/sliderLock/default-slider.png); background-size: auto; background-position: center;'; 
+	}
+	lock()
 
 	// Переключаемся на персонажа женского пола и показываем настройки для нее
 	female.addEventListener('change', () => {
@@ -374,7 +377,7 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 
 		// Проверяем поле "Имя" на правильность заполнения
 		name.addEventListener('input', () => {
-			if (!name.value.match(/\d/) && name.value != null && name.value != '' ) {
+			if (!name.value.match(/\d/) && name.value != null && name.value != '' && name.value.length > 1 ) {
 				name.style.border = '1px solid #1f8ce2';
 				// Если заполнили поле верно, "активируем" следующее поле
 				age.style.cssText = 'pointer-events:; opacity:;';
@@ -399,7 +402,7 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 
 		// Првоеряем поле "Биографию" на правильность заполнения
 		bio.addEventListener('input', () => {
-		if (bio.value != '' && bio.value != null) {
+		if (bio.value != '' && bio.value != null && bio.value.length > 1) {
 				bio.style.border = '1px solid #1f8ce2';
 				// Делаем кнопку активной только после заполнения последнего текстового поля,
 				// заполнение которого возможно только после заполнения двух предыдущих полей 
@@ -449,7 +452,6 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 
 	        politicalViewPerson.textContent = politicalView.value;
 	        bioNewPerson.textContent = bio.value;
-		
 	       
 	    	// Обнуляем результаты  ----------------------------------------------------------------------------
 	       	for (let i = 0; i < progressBar.length; i++) {
@@ -458,13 +460,20 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 	       	for (let j = 0; j < resultCount.length; j++) {
 	       		resultCount[j].textContent = '0%';
 	       	}
+
+			// Убираем обводку у всех кандидатов
+			for (let k = 0; k < mainCardsItem.length; k++) {
+				mainCardsItem[k].classList.remove('main-cards-item-active');	
+			}	       	
 		});
 
 
 	// Сбрасываем результаты  ------------------------------------------------------------------------------
 	let resetResult = document.getElementById('reset'),
 		mainCards = document.getElementsByClassName('main-cards')[0],
-		customChar = document.getElementsByClassName('custom-char')[0];
+		customChar = document.getElementsByClassName('custom-char')[0],
+		select = document.getElementById('select');
+
 	
 		resetResult.addEventListener('click', () =>{
 			mainCards.removeChild(newCardsItem);
@@ -472,14 +481,44 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 			main.style.display = 'none';
 			custom.style.display = 'flex';
 			
-			// Очищаем поля и вызываем функции полей
+			// Очищаем поля
 			name.value = '';
 			age.value = '';
 			bio.value = '';
 
+			// Обнуляем выбор пола
+			female.checked = false;
+			male.checked = false;	
+
+			// Возвращаем исходное значение select
+			select.value = 'Либеральные';		
+
+			// Функция сброса формы кастомизации
+			lock();
+
+			// Блокируем доп. поля, что не указаны в функции lock() и кнопку
+			age.style.cssText = 'pointer-events: none; opacity: 0.3;';
+			bio.style.cssText = 'pointer-events: none; opacity: 0.3;';
+			readyBtn.style.cssText = 'pointer-events: none; opacity: 0.5;';	
+
+			// Возвращаем слайдерам исходное положение, кроме слайдеров "заглушек"
+			for (let i = 1; i < hairStyle.length; i++) {
+				hairStyle[i].style.display = 'none';
+				clothesStyle[i].style.display = 'none';
+			}
+			for (let j = 1; j < skinColor.length; j++) {
+				skinColor[j].style.display = 'none';
+			}
+
+			// Вызываем функции выбора пола
+			male.change = function() {};
+			female.change = function() {};
+
+			// Вызываем функции полей
 			name.input = function() {};
 			age.input = function() {};
 			bio.input = function() {};
+			
 
 		});
 
