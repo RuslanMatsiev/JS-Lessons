@@ -647,7 +647,7 @@ let mainCardsItem = document.getElementsByClassName('main-cards-item'),
 		    	mainCardsItem[2].classList.remove('main-cards-item-active');
 		    }
 
-		    if (c > a && c > b) {
+		    if (c + 25 > a && c + 25 > b) {
 		    	mainCardsItem[2].classList.add('main-cards-item-active');
 		    	mainCardsItem[1].classList.remove('main-cards-item-active');
 		    	mainCardsItem[0].classList.remove('main-cards-item-active');
